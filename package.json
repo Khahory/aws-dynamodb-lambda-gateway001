@@ -1,0 +1,7 @@
+{
+  "name": "aws-dynamodb-lambda-gateway001",
+  "version": "1.0.0",
+  "dependencies": {
+    "aws-sdk": "^2.1362.0"
+  }
+}
