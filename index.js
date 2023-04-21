@@ -141,7 +141,54 @@ async function saveProduct(requestBody) {
     }, error => {
         console.log('Error saving product: ', error);
     })
+}
 
+// Update product
+async function updateProduct(productId, updateKey, updateValue) {
+    const params = {
+        TableName: dynamodbTableName,
+        Key: {
+            productId,
+        },
+        UpdateExpression: `set ${updateKey} = :value`, // a string representing the attribute being updated
+        ExpressionAttributeValues: { // a map of substitutions for all attribute values
+            ':value': updateValue,
+        },
+        ReturnValues: 'UPDATED_NEW', // indicates what data should be returned from the update operation
+    }
+
+    // Update product
+    return await dynamodb.update(params).promise().then((response) => {
+        const body = {
+            Operation: 'UPDATE',
+            Message: 'Product updated successfully',
+            Item: response
+        }
+        return buildResponse(200, body);
+    }, (error) => {
+        console.log('Error updating product: ', error);
+    })
+}
+
+// Delete product
+async function deleteProduct(productId) {
+    const params = {
+        TableName: dynamodbTableName,
+        Key: {
+            productId,
+        },
+        ReturnValues: 'ALL_OLD', // indicates what data should be returned from the delete operation
+    }
+
+    // Delete product
+    return await dynamodb.delete(params).promise().then((response) => {
+        const body = {
+            Operation: 'DELETE',
+            Message: 'Product deleted successfully',
+            Item: response
+        }
+        return buildResponse(200, body);
+    })
 }
 
 
