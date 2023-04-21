@@ -1,3 +1,8 @@
+ENVIRONMENT
+- node v16
+- SDK AWS V2
+- FILES NEED BE JS
+
 Build a CRUD Serverless API with AWS Lambda, API Gateway and a DynamoDB from Scratch
 https://www.youtube.com/watch?v=Ut5CkSz6NR0&t=146s
 
