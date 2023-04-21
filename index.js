@@ -188,6 +188,8 @@ async function deleteProduct(productId) {
             Item: response
         }
         return buildResponse(200, body);
+    }, (error) => {
+        console.log('Error deleting product: ', error);
     })
 }
 
