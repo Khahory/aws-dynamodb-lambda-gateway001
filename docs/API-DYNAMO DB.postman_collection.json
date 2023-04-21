@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "a42859e7-7b8b-4211-b756-bce43cd67743",
+		"name": "API-DYNAMO DB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://pzk6u9em33.execute-api.us-east-1.amazonaws.com/prod/product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"product_id\": \"4443\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pzk6u9em33.execute-api.us-east-1.amazonaws.com/prod/product",
+					"protocol": "https",
+					"host": [
+						"pzk6u9em33",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"product"
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "4444",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://pzk6u9em33.execute-api.us-east-1.amazonaws.com/prod/products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pzk6u9em33.execute-api.us-east-1.amazonaws.com/prod/products",
+					"protocol": "https",
+					"host": [
+						"pzk6u9em33",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://pzk6u9em33.execute-api.us-east-1.amazonaws.com/prod/product",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"product_id\": \"4443\",\r\n  \"updateKey\": \"edad\",\r\n  \"updateValue\": 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pzk6u9em33.execute-api.us-east-1.amazonaws.com/prod/product",
+					"protocol": "https",
+					"host": [
+						"pzk6u9em33",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"product"
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "4444",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://pzk6u9em33.execute-api.us-east-1.amazonaws.com/prod/product?product_id=4444",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pzk6u9em33.execute-api.us-east-1.amazonaws.com/prod/product?product_id=4444",
+					"protocol": "https",
+					"host": [
+						"pzk6u9em33",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"product"
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "4444"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://pzk6u9em33.execute-api.us-east-1.amazonaws.com/prod/product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"product_id\": \"4444\",\r\n  \"product_name\": \"kha\",\r\n  \"edad\": 100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://pzk6u9em33.execute-api.us-east-1.amazonaws.com/prod/product",
+					"protocol": "https",
+					"host": [
+						"pzk6u9em33",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://pzk6u9em33.execute-api.us-east-1.amazonaws.com/prod/health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pzk6u9em33.execute-api.us-east-1.amazonaws.com/prod/health",
+					"protocol": "https",
+					"host": [
+						"pzk6u9em33",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
