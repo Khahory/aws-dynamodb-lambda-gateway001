@@ -11,7 +11,7 @@ const dynamodb = new AWS.DynamoDB.DocumentClient();
 // Table info and paths
 const dynamodbTableName = 'product-inventory';
 const healthPath = '/health';
-const productPath = '/products';
+const productPath = '/product';
 const productsPath = '/products';
 
 // Lambda handler
@@ -43,7 +43,7 @@ exports.handler = async (event) => {
             break;
 
         // post method for creating a product
-        case event.httpMethod === 'POST' && event.path === productsPath:
+        case event.httpMethod === 'POST' && event.path === productPath:
             response = await saveProduct(JSON.parse(event.body));
             break;
 
