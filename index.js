@@ -34,7 +34,7 @@ exports.handler = async (event) => {
 
         // get method for getting a product
         case event.httpMethod === 'GET' && event.path === productPath:
-            response = await getProduct(event.queryStringParameters.productId);
+            response = await getProduct(event.queryStringParameters.product_id);
             break;
 
         // get method for getting all products
@@ -50,12 +50,12 @@ exports.handler = async (event) => {
         // patch method for updating a product
         case event.httpMethod === 'PATCH' && event.path === productPath:
             const requestBody = JSON.parse(event.body);
-            response = await updateProduct(requestBody.productId, requestBody.updateKey, requestBody.updateValue);
+            response = await updateProduct(requestBody.product_id, requestBody.updateKey, requestBody.updateValue);
             break;
 
         // delete method for deleting a product
         case event.httpMethod === 'DELETE' && event.path === productPath:
-            response = await deleteProduct(JSON.parse(event.body).productId);
+            response = await deleteProduct(JSON.parse(event.body).product_id);
             break;
 
         // default response
@@ -67,12 +67,12 @@ exports.handler = async (event) => {
 }
 
 // Get product by id
-async function getProduct(productId) {
+async function getProduct(product_id) {
     // Get product from dynamodb
     const params = {
         TableName: dynamodbTableName,
         Key: {
-            productId,
+            product_id,
         },
     };
     // Return product
@@ -144,11 +144,11 @@ async function saveProduct(requestBody) {
 }
 
 // Update product
-async function updateProduct(productId, updateKey, updateValue) {
+async function updateProduct(product_id, updateKey, updateValue) {
     const params = {
         TableName: dynamodbTableName,
         Key: {
-            productId,
+            product_id,
         },
         UpdateExpression: `set ${updateKey} = :value`, // a string representing the attribute being updated
         ExpressionAttributeValues: { // a map of substitutions for all attribute values
@@ -171,11 +171,11 @@ async function updateProduct(productId, updateKey, updateValue) {
 }
 
 // Delete product
-async function deleteProduct(productId) {
+async function deleteProduct(product_id) {
     const params = {
         TableName: dynamodbTableName,
         Key: {
-            productId,
+            product_id,
         },
         ReturnValues: 'ALL_OLD', // indicates what data should be returned from the delete operation
     }
