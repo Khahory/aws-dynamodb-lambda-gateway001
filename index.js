@@ -87,12 +87,12 @@ async function getProduct(product_id) {
 async function getProducts() {
     // Get products from dynamodb
     const params = {
-        TableName: dynamodbTableName,
+        TableName: dynamodbTableName
     };
     // Return products
     const allProducts = await scanDynamoRecords(params, []);
     const body = {
-        products: allProducts,
+        products: allProducts
     }
     return buildResponse(200, body);
 }
@@ -116,7 +116,7 @@ async function scanDynamoRecords(scanParams, itemArray) {
         // Return all items
         return itemArray;
     } catch (error) {
-        console.log('Error scanning dynamodb table: ', error);
+        console.error('Error scanning dynamodb table: ', error);
     }
 }
 
@@ -139,7 +139,7 @@ async function saveProduct(requestBody) {
         // Return response
         return buildResponse(200, body);
     }, error => {
-        console.log('Error saving product: ', error);
+        console.error('Error saving product: ', error);
     })
 }
 
@@ -162,11 +162,11 @@ async function updateProduct(product_id, updateKey, updateValue) {
         const body = {
             Operation: 'UPDATE',
             Message: 'Product updated successfully',
-            Item: response
+            UpdatedAttributes: response
         }
         return buildResponse(200, body);
     }, (error) => {
-        console.log('Error updating product: ', error);
+        console.error('Error updating product: ', error);
     })
 }
 
@@ -189,7 +189,7 @@ async function deleteProduct(product_id) {
         }
         return buildResponse(200, body);
     }, (error) => {
-        console.log('Error deleting product: ', error);
+        console.error('Error deleting product: ', error);
     })
 }
 
